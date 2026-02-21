@@ -14,15 +14,9 @@ body {
 }:root {
     --font-color:rgb(255, 255, 255);
     --font-size: 30px;
-    --con-width: 85%;
-    --con-height: 85vh;
-    --web-lode: 1s;
-    --web-lod-delay: 0s;
     --container-radius: 0 100px 0 100px;
     /* ----------Calculation---------- */
     --con-padd: calc(2 * var(--font-size));
-    --curser-w: calc(5 * var(--font-size));
-    --font-year: calc(.46 * var(--font-size));
     --pad-w:calc(3 * var(--font-size));
 
 }
@@ -32,21 +26,21 @@ body {
     color: var(--font-color);
     border-radius: var(--container-radius);
     overflow: hidden;
-    animation: loading var(--web-lode) forwards var(--web-lod-delay);
+    animation: loading 1s forwards 0s;
 }
 @keyframes loading {
 
     to {
-        width: var(--con-width);
-        height: var(--con-height);
+        width: 85%;
+        height: 90%;
         padding: var(--con-padd);
         background-color: rgba(0, 0, 0, 0.7);
         backdrop-filter: blur(3px);
     }
 }
 .container .id-name h1{    
-    width: var(--curser-w);
-    font-size: var(--font-size);
+    width: 150px;
+    font-size: 30px;
     border-right:2px solid var(--font-color);  
     animation: blink-curser .55s alternate infinite;
      margin-top: -8px;
@@ -57,7 +51,7 @@ body {
     }
 }
 .container .id-name .age{
-   font-size: var(--font-year);
+   font-size:13px;
    color: yellowgreen;
 }
 h3{
@@ -151,7 +145,8 @@ a {
     position: absolute;
     display:box;
     top: 23%;
-    left: 51%;
+    left: 52%;
+    width: max-content;
 }
 .promotions::before{
     content: "";
@@ -164,7 +159,7 @@ a {
 }
 @keyframes unline{
     100%{
-        width: max-content;
+        width: 100%;
     }
 }
 @media (max-width:760px){
@@ -172,14 +167,44 @@ a {
        --font-size: 20px;
 
     }
-    .container .id-name h1{    
-     margin-top: -3px;
-    }
     .notes{    
-    padding: 50px 30px 100px 0px;
+    padding: 50px 15px 100px 15px;
     width: 180px;
     }
     .promotions h3{
-        text-align: left;
+        text-align: center;
+        width: 134px;   
+    }
+    
 }
+@media (max-width:560px){
+    .link{
+        position: absolute;
+        bottom: 50px;
+        place-items: center;
+    }
+    .promotions {
+        left: 0;  
+        top: 30%; 
+        padding:0px 50px 100px 50px; ;
+    }
+    .container::before{
+        height: 0;
+        left: 10%;
+        width: 50%;
+        top: 38%;
+        border-bottom: 1px solid;
+    }
+    .notes{    
+    margin: -20px 0px 0px 100px;
+    width: 180px;
+    }
+    .promotions::before{
+        border: none;
+    }
+    #call{
+        font-size: 15px;
+    }
+
+
 }
