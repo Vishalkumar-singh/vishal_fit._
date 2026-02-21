@@ -1,0 +1,185 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-image: url("https://png.pngtree.com/background/20230519/original/pngtree-an-old-gym-setting-with-dumbbells-picture-image_2667256.jpg");
+    background-size: cover;
+}:root {
+    --font-color:rgb(255, 255, 255);
+    --font-size: 30px;
+    --con-width: 85%;
+    --con-height: 85vh;
+    --web-lode: 1s;
+    --web-lod-delay: 0s;
+    --container-radius: 0 100px 0 100px;
+    /* ----------Calculation---------- */
+    --con-padd: calc(2 * var(--font-size));
+    --curser-w: calc(5 * var(--font-size));
+    --font-year: calc(.46 * var(--font-size));
+    --pad-w:calc(3 * var(--font-size));
+
+}
+.container {
+    width: 0;
+    height: 0;
+    color: var(--font-color);
+    border-radius: var(--container-radius);
+    overflow: hidden;
+    animation: loading var(--web-lode) forwards var(--web-lod-delay);
+}
+@keyframes loading {
+
+    to {
+        width: var(--con-width);
+        height: var(--con-height);
+        padding: var(--con-padd);
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(3px);
+    }
+}
+.container .id-name h1{    
+    width: var(--curser-w);
+    font-size: var(--font-size);
+    border-right:2px solid var(--font-color);  
+    animation: blink-curser .55s alternate infinite;
+     margin-top: -8px;
+}
+@keyframes blink-curser {
+    100% {
+        border: none;
+    }
+}
+.container .id-name .age{
+   font-size: var(--font-year);
+   color: yellowgreen;
+}
+h3{
+    text-align: right;
+}
+
+.notes{    
+    padding: 60px;
+    width: 270px;
+}
+.notes h2 {
+    font-size: var(--font-size);
+    --wts: calc(.008 * var(--font-size));
+}
+
+.notes h2 span {
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke: var(--wts) var(--font-color);
+    animation: text 16s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+}
+
+.notes h2 span::before {
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    border-right: 2px solid var(--font-color);
+    color: var(--font-color);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: text-file 4s linear infinite;
+}
+
+@keyframes text {
+
+    25%,
+    100% {
+        display: none;
+    }
+}
+
+@keyframes text-file {
+
+    10%,
+    100% {
+        width: 0;
+    }
+
+    70%,
+    90% {
+        width: 100%;
+    }
+}
+
+a {
+    width: max-content;
+    text-decoration: none;
+    padding:15px var(--pad-w);
+    font-size: 20px;
+    background-color: rgba(175, 175, 175, 0.129);
+    border-radius: 0px 30px;
+    transition-duration: .2s;    
+    color: var(--font-color);
+}
+@media (min-width:760px){
+    a:hover{
+        background-color: var(--font-color);
+        font-size: 22px;
+        color: black;
+    }
+}
+.link{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+ 
+}
+.container::before{
+  content: "";
+  position: absolute;
+  top: 23%;
+  left:50%;
+  height: 40%;
+  width: 2px;
+  background: var(--font-color);
+}
+.promotions{
+    position: absolute;
+    display:box;
+    top: 23%;
+    left: 51%;
+}
+.promotions::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;   
+    width: 0; 
+    border: 1px solid;
+    animation: unline 20s forwards ;
+}
+@keyframes unline{
+    100%{
+        width: max-content;
+    }
+}
+@media (max-width:760px){
+    :root{
+       --font-size: 20px;
+
+    }
+    .container .id-name h1{    
+     margin-top: -3px;
+    }
+    .notes{    
+    padding: 50px 30px 100px 0px;
+    width: 180px;
+    }
+    .promotions h3{
+        text-align: left;
+}
+}
