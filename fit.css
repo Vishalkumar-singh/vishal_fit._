@@ -205,6 +205,36 @@ a {
     #call{
         font-size: 15px;
     }
+}
+@media (max-width:460px){
+    @keyframes loading {
 
-
+    to {
+        width: 95%;
+        height: 90%;
+        padding: 80px 5px 80px 50px;
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(3px);
+    }
+}
+    .notes{    
+         margin: -20px 0px 0px 50px;
+     }
+     a {
+        padding:10px var(--pad-w);
+        font-size: 15px;
+        border-radius: 0px 20px;
+    
+    }
+    #call{
+        padding:10px 30px;
+    }
+    .promotions {
+        left: 0;  
+        top: 35%; 
+    }
+     .container::before{
+        width: 50%;
+        top: 45%;
+    }
 }
