@@ -16,3 +16,25 @@ function getAge() {
 
 // HTML me result bhejna
 document.getElementById("year").innerText = getAge();
+
+
+const link = document.getElementById("myLink");
+const modal = document.getElementById("customConfirm");
+const confirmBtn = document.getElementById("confirmBtn");
+const cancelBtn = document.getElementById("cancelBtn");
+
+let targetUrl = "";
+
+link.addEventListener("click", function(e) {
+  e.preventDefault();
+  targetUrl = this.href;
+  modal.style.display = "flex";
+});
+
+confirmBtn.addEventListener("click", function() {
+  window.location.href = targetUrl;
+});
+
+cancelBtn.addEventListener("click", function() {
+  modal.style.display = "none";
+});
